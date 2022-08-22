@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="ede6aa4e-928c-4e77-9e8a-fd26311af3a9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     petugas.`kdPetugas` AS petugas_kdPetugas,
+     petugas.`petugas` AS petugas_petugas,
+     petugas.`jk` AS petugas_jk,
+     petugas.`no_telp` AS petugas_no_telp,
+     petugas.`alamat` AS petugas_alamat,
+     petugas.`password` AS petugas_password
+FROM
+     `petugas` petugas]]>
+	</queryString>
+	<field name="petugas_kdPetugas" class="java.lang.String"/>
+	<field name="petugas_petugas" class="java.lang.String"/>
+	<field name="petugas_jk" class="java.lang.String"/>
+	<field name="petugas_no_telp" class="java.lang.String"/>
+	<field name="petugas_alamat" class="java.lang.String"/>
+	<field name="petugas_password" class="java.lang.String"/>
+	<background>
+		<band height="575" splitType="Stretch">
+			<image vAlign="Bottom">
+				<reportElement mode="Opaque" x="0" y="234" width="85" height="241" backcolor="#000000" uuid="aee2a8a6-ceb6-4568-9252-da6b9a75442f"/>
+				<imageExpression><![CDATA["src/Laporan/silhouette2.jpg"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="-20" y="234" width="20" height="241" backcolor="#000000" uuid="c969f8c4-87b7-44b7-a372-c960b5c5b4b5"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="acf69601-8e39-40a5-9f47-798c62441598"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="4e561930-35cb-4e98-8d69-2b5c2b4b320a"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="fcc4ea80-7c27-449a-9ee3-90c335deb1f2"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="5f1193aa-4dcc-4e6d-be26-4c79915a110f"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="77703bcf-a945-4feb-8836-ee887831f658"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Laporan Data Petugaas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="caffc36f-3732-451f-a651-4b79e3e0a8c7"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[List Petugas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666" uuid="2de28449-e750-4482-b33c-d80f5d483451"/>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="117" height="15" uuid="0f0b69c6-acfc-4d5f-96cd-4529ca9b4c6e"/>
+					<text><![CDATA[kode_Petugas]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="117" y="0" width="117" height="15" uuid="6eb91612-16f4-443c-a997-f4e89022148f"/>
+					<text><![CDATA[nama_Petugas]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="234" y="0" width="117" height="15" uuid="b1521bc8-c170-4201-b3cf-844c0e77f0b4"/>
+					<text><![CDATA[petugas_jk]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="351" y="0" width="117" height="15" uuid="95f9d92f-ae52-4b4f-8bc8-ed6f85e16a66"/>
+					<text><![CDATA[petugas_no_telp]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="468" y="0" width="117" height="15" uuid="7a183d94-1903-4268-a7b9-679d66c89500"/>
+					<text><![CDATA[petugas_alamat]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="585" y="0" width="117" height="15" uuid="605e14aa-2ba4-4481-8756-dbd371201841"/>
+					<text><![CDATA[petugas_password]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="0876a793-a214-4b6f-8087-53bb4c84caf3"/>
+				<textField>
+					<reportElement style="Detail" x="0" y="0" width="117" height="15" uuid="d6c515f5-5a68-4ebf-8321-e35af9432e71"/>
+					<textFieldExpression><![CDATA[$F{petugas_kdPetugas}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="117" y="0" width="117" height="15" uuid="c2409087-a004-4556-9420-2c30bc6b67aa"/>
+					<textFieldExpression><![CDATA[$F{petugas_petugas}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="234" y="0" width="117" height="15" uuid="fcc8b3aa-cecb-4a1c-bca2-2a9b1641e5b7"/>
+					<textFieldExpression><![CDATA[$F{petugas_jk}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="351" y="0" width="117" height="15" uuid="126d97d1-ca78-4901-bb17-a3414fbd344d"/>
+					<textFieldExpression><![CDATA[$F{petugas_no_telp}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="468" y="0" width="117" height="15" uuid="d714475b-5b5a-42ce-a170-b6a874bec617"/>
+					<textFieldExpression><![CDATA[$F{petugas_alamat}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="585" y="0" width="117" height="15" uuid="985bb9e4-fe99-4abd-ad12-4b35a689fe7e"/>
+					<textFieldExpression><![CDATA[$F{petugas_password}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="9c71be21-3a19-487e-8309-37234c8385d4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000" uuid="ee7e218e-4916-4d18-9826-0fea473073e0"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="96" y="0" width="267" height="20" uuid="9d1849a8-5863-4e4f-97cf-c39589d2adad"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Silhouette Title Report]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

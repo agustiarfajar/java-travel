@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="5a3af612-0d75-4190-be93-f7951c07639b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[SELECT
+     transaksi.`kdBooking` AS Kode_Booking,
+     transaksi.`tglTerbit` AS Tgl_Terbit,
+     transaksi.`tglPergi` AS Tgl_Pergi,
+     transaksi.`totalBayar` AS Total_Bayar,
+     petugas.`petugas` AS Petugas,
+     customer.`customer` AS Customer,
+     keberangkatan.`keberangkatan` AS Keberangkatan,
+     tujuan.`tujuan` AS Tujuan	
+FROM
+     `transaksi` transaksi
+      INNER JOIN `petugas` petugas ON transaksi.kdPetugas = petugas.kdPetugas
+      INNER JOIN `customer` customer ON transaksi.kdCustomer = customer.kdCustomer
+      INNER JOIN `keberangkatan` keberangkatan ON transaksi.kdKeberangkatan = keberangkatan.kdKeberangkatan
+      INNER JOIN `tujuan` tujuan ON transaksi.kdTujuan = tujuan.kdTujuan]]>
+	</queryString>
+	<field name="Kode_Booking" class="java.lang.String"/>
+	<field name="Tgl_Terbit" class="java.sql.Timestamp"/>
+	<field name="Tgl_Pergi" class="java.sql.Timestamp"/>
+	<field name="Total_Bayar" class="java.lang.Double"/>
+	<field name="Petugas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Customer" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Keberangkatan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tujuan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="575" splitType="Stretch">
+			<image vAlign="Bottom">
+				<reportElement mode="Opaque" x="0" y="234" width="85" height="241" backcolor="#000000" uuid="9a17691f-de7b-4b7a-984f-123e8be15c19"/>
+				<imageExpression><![CDATA["src/Laporan/silhouette2.jpg"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="-20" y="234" width="20" height="241" backcolor="#000000" uuid="eba9cba5-28fa-4606-8b39-238fe58f8e62"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="ce439c2d-10c7-48f5-8c9f-3fecee7b4363"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="865df57c-3f59-49cf-b1f6-f8ce23c1970b"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="b74b88cb-da48-487f-8c46-2fcaa22e385c"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="8581e2dc-ebcb-4689-97be-7f7c3f6fce6f"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="a5d1ea92-5bdc-4731-a812-804f36e5be89"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[LAPORAN TRANSAKSI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="fd6cd3ad-267c-44aa-bd16-cf59084b464d"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Kelompok 2 - Travel]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666" uuid="8d509f0f-5f39-4081-916e-ca899bab370b"/>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="88" height="15" uuid="513f7b76-560d-4f9c-9430-facfbeab286a"/>
+					<text><![CDATA[No_Nota]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="88" y="0" width="88" height="15" uuid="7a89d2fd-d07d-4610-9aac-bd8eca3bd991"/>
+					<text><![CDATA[Petugas]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="176" y="0" width="88" height="15" uuid="3143c7c0-0659-45d0-b4ea-d30f55fb9bef"/>
+					<text><![CDATA[Tgl_Terbit]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="264" y="0" width="88" height="15" uuid="afe857fa-4b50-4438-89e2-6bf3b6441f08"/>
+					<text><![CDATA[Customer]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="352" y="0" width="73" height="15" uuid="d96d3843-2b7c-4582-bb45-b75b341d78b6"/>
+					<text><![CDATA[Keberangkatan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="440" y="0" width="88" height="15" uuid="e13b4a0f-1640-4ef7-bb80-f2a78cfc148f"/>
+					<text><![CDATA[Tujuan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="528" y="0" width="88" height="15" uuid="3b1cec73-43cd-4b0c-be56-e7e3e1d18ae4"/>
+					<text><![CDATA[Tgl_Pergi]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="616" y="0" width="88" height="15" uuid="c3909078-0914-4227-9b8c-e3bc2785da7b"/>
+					<text><![CDATA[Total_Bayar]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="9573c8c0-b0bd-4a58-9e8f-3c5ed51cd1b4"/>
+				<textField>
+					<reportElement style="Detail" x="0" y="0" width="88" height="15" uuid="11c73187-1c7f-4e21-b3ee-9c87d1fbbedc"/>
+					<textFieldExpression><![CDATA[$F{Kode_Booking}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="88" y="0" width="88" height="15" uuid="3c233b52-941f-429c-844b-5b3a7d61cd3e"/>
+					<textFieldExpression><![CDATA[$F{Petugas}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="176" y="0" width="88" height="15" uuid="c5ced077-1b0d-4ae5-994f-b5a69ab55917"/>
+					<textFieldExpression><![CDATA[$F{Tgl_Terbit}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="264" y="0" width="88" height="15" uuid="57ebe637-6c91-4bb7-a15d-377cce72153e"/>
+					<textFieldExpression><![CDATA[$F{Customer}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="352" y="0" width="88" height="15" uuid="9559c14a-34e7-48b8-8d3c-7a47445ee588"/>
+					<textFieldExpression><![CDATA[$F{Keberangkatan}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="440" y="0" width="88" height="15" uuid="013fe125-1c7f-4a4b-a3c1-e96dd41ecb28"/>
+					<textFieldExpression><![CDATA[$F{Tujuan}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="528" y="0" width="88" height="15" uuid="30484b99-d423-41b0-be55-d78dfc3dbaaf"/>
+					<textFieldExpression><![CDATA[$F{Tgl_Pergi}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="616" y="0" width="88" height="15" uuid="4034afc8-56eb-4b75-ac50-837ed10311c1"/>
+					<textFieldExpression><![CDATA[$F{Total_Bayar}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="b1aaa3ad-7570-49d1-8025-b989bc624d96"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000" uuid="b0070c5e-67ba-4bae-b5e9-c032979e9aff"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="96" y="0" width="267" height="20" uuid="46e43cb7-f763-41a9-b0fd-60c48c89883c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Silhouette Title Report]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
